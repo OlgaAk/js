@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <title>CSS Grid</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="row">
+                <div class="col-6 offset-6 col-lg-4 offset-lg-8">
+                    <form class="search">
+                        <input type="text">
+                        <button>
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </header>
+        <nav class="navbar">
+            <div class="row">
+                <div class="col-12">
+                    <ul class="menu">
+                        <li>
+                            <a href="#">Главная</a>
+                        </li>
+                        <li>
+                            <a href="#">Портфолио</a>
+                        </li>
+                        <li>
+                            <a href="#">О нас</a>
+                        </li>
+                        <li>
+                            <a href="#">Контакты</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="content">
+            <div class="row">
+                <div class="col-10 offset-1 col-lg-10 offset-lg-1">
+                    <div id="slider">
+                      
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6 col-lg-6">
+                    <form method="post">
+                        <div class="row text-field">
+                            <label class="col-4 col-lg-3" for="username">Пользователь</label>
+                            <div class="col-8 col-lg-9">
+                                <input type="text" id="username">
+                            </div>
+                        </div>
+                        <div class="row text-field">
+                            <label class="col-4 col-lg-3" for="password">Пароль</label>
+                            <div class="col-8 col-lg-9">
+                                <input type="password" id="password">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-lg-12">
+                                <input type="submit" value="Войти">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-6 col-lg-6">
+                    
+                </div>
+            </div>
+        </div>
+        <footer></footer>
+    </div>
+    <script src="js/slider.js"></script>
+    <script src="js/slider2.js"></script>
+</body>
+</html>

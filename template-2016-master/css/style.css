@@ -1,0 +1,136 @@
+@import url(font-awesome.min.css);
+@import url(//necolas.github.io/normalize.css/5.0.0/normalize.css);
+@import url(//meyerweb.com/eric/tools/css/reset/reset.css);
+@import url(grid.css);
+
+html {
+    font-size: 62.5%; /* rem = 10px */
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+.menu li {
+    float: left;
+}
+
+.menu {
+    list-style: none;
+}
+
+.menu a {
+    color: #333;
+    display: block;
+    padding: 1em;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    background: #aaa;
+}
+
+/* Forms */
+
+.text-field label {
+    margin-bottom: 1rem;
+}
+
+.text-field input,
+.text-field textarea {
+    border: 0.1rem solid #333;
+    box-sizing: border-box;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+.navbar {
+    background: #e2e2e2;
+}
+
+/* End Forms */
+
+
+/* Search */
+
+.search {
+    border: 0.1rem solid #333;
+    position: relative;
+    height: 3rem;
+}
+
+.search input {
+    border: none;
+    padding-right: 4rem;
+    height: 100%;
+    width: 100%;
+}
+
+.search button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    border: none;
+    height: 100%;
+    width: 3rem;
+}
+
+/* End Search */
+
+
+/* Slider */
+
+#slider {
+    height: 30rem;
+    position: relative;
+}
+
+.sliderImage {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+   
+    
+}
+
+.sliderImage.active {
+    display: block;
+
+}
+
+#slider .arrow-prev,
+#slider .arrow-next {
+    color: white;
+    font-size: 6.4rem;
+    position: absolute;
+    /*top: 0;*/
+    /*line-height: 30rem;*/
+    top: 50%;
+    height: 6.4rem;
+    margin-top: -3.2rem;
+}
+
+#slider .arrow-prev {
+    left: 2rem;
+}
+
+#slider .arrow-next {
+    right: 2rem;
+}
+
+/*#slider .slide-1 {
+    background-image: url(http://lorempixel.com/600/300/);
+}
+
+#slider .slide-2 {
+    background-image: url(http://lorempixel.com/600/300/);
+}
+
+#slider .slide-3 {
+    background-image: url(http://lorempixel.com/600/300/);
+}*/
+
+/* End Slider */
