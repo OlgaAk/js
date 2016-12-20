@@ -5,6 +5,8 @@
 .row {
     margin: 0 auto;
     margin-bottom: 2rem;
+    width:100%;
+    
 }
 
 .row .row {

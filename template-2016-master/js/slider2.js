@@ -52,5 +52,13 @@
     slider.add('img/img3.jpg', 'Sea');
  
     slider.runSlideShow();
+
+
+document.getElementsByClassName('arrow-next').onclick = function () {
+   allert('jjj');
+}
+
+
+
   
  }(window));

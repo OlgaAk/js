@@ -86,12 +86,13 @@ body {
 }
 
 .sliderImage {
-    height: 100%;
+    height: ;
     width: 100%;
     position: absolute;
     left: 0;
     top: 0;
     display: none;
+    
    
     
 }
@@ -101,24 +102,24 @@ body {
 
 }
 
-#slider .arrow-prev,
-#slider .arrow-next {
+#wrap-slider .arrow-prev,
+#wrap-slider .arrow-next {
     color: white;
     font-size: 6.4rem;
     position: absolute;
-    /*top: 0;*/
-    /*line-height: 30rem;*/
-    top: 50%;
+    top: 0;
+    line-height: 30rem;
+    top: 40%;
     height: 6.4rem;
     margin-top: -3.2rem;
 }
 
-#slider .arrow-prev {
-    left: 2rem;
+#wrap-slider .arrow-prev {
+   left:11%;
 }
 
-#slider .arrow-next {
-    right: 2rem;
+#wrap-slider .arrow-next {
+    right: 11%;
 }
 
 /*#slider .slide-1 {
