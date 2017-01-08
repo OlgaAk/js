@@ -24,19 +24,21 @@ console.log('Этот триугольник не прямоугольный');
 
 // task 2
 
-var arr = [1, 6, 3, 8, 6];
-arr.sort(compare);
-console.log(arr);
-
-function compare (a, b) {
-    if (a < b) {
-        return -1;
-    } else if (a > b) {
-        return 1;
-    } else {
-        return 0;
-    }
-}
+var arr = [2, 0, 20, 7, 6];
+ for (var j = arr.length - 1; j >= 0; j--) {
+     var i = arr.length - 1 ;
+     while (i >= 0) {
+         if (arr[i] <= arr[i-1]) {
+             var container = arr [i-1];
+             arr[i-1] = arr [i];
+             arr [i] = container;
+             i--;
+         } else {
+             i--;
+         }        
+     }
+ }
+  console.log(arr);
 
 
 // task 3
