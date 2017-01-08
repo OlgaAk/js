@@ -1,34 +1,34 @@
 'use strict'
 
-///// Task 1
+///// Task 1.1
 
-var strWithBla = 'String with "bla-bla-bla"';
-var blaStr = 'bla';
+var strWithBla = 'String with "bla-bla-bla"'; 
+var blaStr = 'bla';                          
 
-var	count = 0;
-var pos = strWithBla.indexOf(blaStr);
-while ( pos != -1 ) {
-   count++;
-   pos = strWithBla.indexOf(blaStr,pos+1);
+var resultArray = [];
+var position = 0;
+while (true) {
+    var result = strWithBla.indexOf(blaStr, position);
+   if (result == -1 ) break;
+    resultArray.push(result);
+    position = result + 1; 
 }
+console.log(resultArray);
 
-console.log(count); 
+///// Task 1.2
 
-
-/////
-
-function countStr (str, substr) {
-var	count = 0;
-var pos = str.indexOf(substr);
-while ( pos != -1 ) {
-   count++;
-   pos = str.indexOf(substr,pos+1);
+function findSubstr (str, subStr) {
+  var resultArray = [];
+   var position = 0;
+   while (true) {
+    var result = str.indexOf(subStr, position);
+   if (result == -1 ) break;
+    resultArray.push(result);
+    position = result + 1; 
 }
-console.log(count);   
+    console.log(resultArray);
 }
-
-countStr("Hello, lola", "lo");
-
+findSubstr('Hello lola', 'lo');  
 
 
 ///// Task 2
@@ -38,7 +38,8 @@ var city1 = {
   population: 12000,
   mayor: 'Barak',
   calcPop: function (population) {
-    this.population += city2.population - population;
+    this.population += population;
+    city2.population -= population;
   }
   
 };
@@ -48,8 +49,9 @@ city2.population = 2500;
 city2.mayor = 'John';
 
 console.log(city1, city2);
-city1.calcPop(10000);
+city1.calcPop(1000);
 console.log(city1.population);
+console.log(city2.population);
 
 
 
