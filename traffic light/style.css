@@ -1,0 +1,52 @@
+
+body {
+    box-sizing: border-box;
+}
+
+#wrapper {
+    width: 400px;
+    height: 600px;
+    background-color: white;
+    text-align: center;
+    margin-left: 30%;
+    overflow: hidden; 
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#trafficLightDiv {
+    width: 170px;
+    height: 400px;
+    background-color: white;
+    margin:2em;
+    overflow: hidden; 
+    margin-left: 5em;
+    border: 1em solid dimgray;
+    
+}
+
+#greenLightId, #redLightId, #yellowLightId {
+    width: 100px;
+    border-radius: 50px;
+    height: 100px;
+    margin: 2em;
+    margin-top: 1em;
+    
+}
+
+#greenLightId  {
+    background-color: green;
+}
+
+#redLightId     {
+    background-color: red;
+}
+
+#yellowLightId {
+     background-color: yellow;
+}
+
+ .off {
+    opacity: 0.2;
+}
+
