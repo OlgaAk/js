@@ -1,0 +1,45 @@
+
+body {
+    box-sizing: border-box;
+}
+
+#wrapper {
+    width: 95%;
+    height: 1600px;
+    background-color: white;
+    
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border: 0.1em solid green;
+    float: left;
+}
+
+#days {
+    width: 65%;
+    height: 400px;
+    background-color: white;
+    margin:1em;
+ float: left;
+    border: 0.1em solid dimgray;
+    
+}
+
+#month {
+    width: 25%;
+    height: 400px;
+    background-color: white;
+    margin:1em;
+    float: left;
+   
+  
+    border: 0.1em solid dimgray;
+    
+}
+
+.calenderDay {
+    width: 2em;
+    height: 2em;
+    border: 0.1em solid black; 
+    float:left;
+}
+
