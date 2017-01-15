@@ -46,7 +46,7 @@ body {
      background-color: yellow;
 }
 
- .off {
-    opacity: 0.2;
+ .off, .wasOn {
+    opacity: 0.1;
 }
 

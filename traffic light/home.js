@@ -12,30 +12,36 @@
 
  var redLight = document.createElement('div');
  redLight.setAttribute('id', 'redLightId');
- redLight.setAttribute('class', 'off');
+ redLight.setAttribute('class', 'wasOn');
 
 
 trafficLight.appendChild(greenLight);
 trafficLight.appendChild(yellowLight);
 trafficLight.appendChild(redLight);
 
-var lights = [greenLight, yellowLight, redLight];
-
 
 function switchLight () {
+
   var activeLight = document.querySelector(".active");
-  var offLight = document.querySelectorAll(".off");
-   console.log(offLight);
-   activeLight.removeAttribute('class', 'active');
-   activeLight.setAttribute('class', 'off');
-   if   (activeLight != yellowLight) {
+  var offLight = document.querySelector(".off");
+  var lightWasOn = document.querySelector(".wasOn");
+ 
+    if   (activeLight != yellowLight) {
+       lightWasOn.removeAttribute('class', 'wasOn');
+     lightWasOn.setAttribute('class', 'off');
+       activeLight.removeAttribute('class', 'active');
+   activeLight.setAttribute('class', 'wasOn');
      yellowLight.removeAttribute('class', 'off');
      yellowLight.setAttribute('class', 'active');
+      
+    
    }     
     else if  (activeLight = yellowLight) {
-   var i = offLight.length;
-     offLight[i-1].removeAttribute('class', 'off');
-      offLight[i-1].setAttribute('class', 'active');
+   yellowLight.removeAttribute('class', 'active');
+   yellowLight.setAttribute('class', 'off');
+  offLight.removeAttribute('class', 'off');
+     offLight.setAttribute('class', 'active');
+   
    }  
 }
  
