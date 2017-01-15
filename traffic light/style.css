@@ -35,11 +35,11 @@ body {
 }
 
 #greenLightId  {
-    background-color: green;
+    background-color: red;
 }
 
 #redLightId     {
-    background-color: red;
+    background-color: green;
 }
 
 #yellowLightId {
