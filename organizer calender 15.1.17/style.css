@@ -72,3 +72,15 @@ h1 {
     font-size: 20px;
 
 }
+
+#divForm {
+    position:absolute;
+left:40%;
+top:17%;
+margin-left:-202px;
+background-color: lightblue;
+border: solid lightsteelblue 5px;
+width:50%;
+height: 50%;
+display: none;
+}

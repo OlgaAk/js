@@ -62,8 +62,17 @@ calenderDiv.appendChild(cDay);
 }
 }
 
+var form = document.getElementById('divForm');
+
+
+calenderDiv.addEventListener('click', function () { form.style.display = display-block; } );
+
+
+
+
 findMonday();
 createCalender(daysInCurrentMonth);
+
 
 } (window));
 
