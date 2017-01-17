@@ -1,45 +1,74 @@
 
 body {
     box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 #wrapper {
     width: 95%;
-    height: 1600px;
+    height: 100%t;
     background-color: white;
     
     margin-top: 1em;
     margin-bottom: 1em;
-    border: 0.1em solid green;
-    float: left;
+
+    margin-left: 2em;
 }
 
 #days {
-    width: 65%;
-    height: 400px;
+    width: 80%;
+    height: 2px;
     background-color: white;
-    margin:1em;
- float: left;
-    border: 0.1em solid dimgray;
-    
-}
-
-#month {
-    width: 25%;
-    height: 400px;
-    background-color: white;
-    margin:1em;
-    float: left;
-   
   
     border: 0.1em solid dimgray;
     
 }
 
-.calenderDay {
-    width: 2em;
-    height: 2em;
-    border: 0.1em solid black; 
-    float:left;
+#calender {
+    width: 80%;
+    height: 900px;
+  
+    margin:1em;
+    margin-left: 150px;
+    margin-top: 50px;
+    border: 0.1em solid dimgray;
+    background-color: dimgray;
+ 
+    
 }
 
+.calenderDay {
+    width: 9em;
+    height: 9em;
+    border: 0.1em solid black; 
+    float:left;
+     background-color: white;
+     margin: 2px;
+}
+
+.calenderDay p {
+    width: 100%;
+    margin-top: 0;
+    height: 25px;
+    background: linear-gradient(lightgray, gray);
+    
+     
+}
+
+.calenderDay:hover {
+    background-color: lightgray;
+} 
+
+.dayPlans {
+    width: 100%;
+    height: 6em;
+    border: black solid 1px;
+} 
+
+h1 {
+    color: white;
+    text-align: center;
+    
+    font-size: 20px;
+
+}
