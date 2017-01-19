@@ -12,7 +12,7 @@ body {
     margin-top: 1em;
     margin-bottom: 1em;
 
-    margin-left: 2em;
+    margin-left: 20%;
 }
 
 #days {
@@ -25,14 +25,14 @@ body {
 }
 
 #calender {
-    width: 80%;
-    height: 900px;
-  
+    width: 66em;
+    height: 70%;
+    float: left;
     margin:1em;
     margin-left: 150px;
     margin-top: 50px;
     border: 0.1em solid dimgray;
-    background-color: dimgray;
+    background-color: lightslategray;
  
     
 }
@@ -40,7 +40,7 @@ body {
 .calenderDay {
     width: 9em;
     height: 9em;
-    border: 0.1em solid black; 
+    border: 0.1em solid white; 
     float:left;
      background-color: white;
      margin: 2px;
@@ -50,7 +50,8 @@ body {
     width: 100%;
     margin-top: 0;
     height: 25px;
-    background: linear-gradient(lightgray, gray);
+    background: linear-gradient(lightgray, white);
+ border-bottom: 1px gray solid;
     
      
 }
@@ -68,9 +69,9 @@ body {
 h1 {
     color: white;
     text-align: center;
-    
+    background-color: steelblue;
     font-size: 20px;
-
+height: max-content;
 }
 
 #divForm {
@@ -83,4 +84,24 @@ border: solid lightsteelblue 5px;
 width:50%;
 height: 50%;
 display: none;
+}
+
+#closeButton {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    height: 20px;
+    width: 20px;
+    font-size: 15px;
+    padding: 0;
+   border: none;
+   background-color: white;
+
+}
+
+.selectedDay {
+    background-color: lightsteelblue;
+}
+.selectedDay > span{
+    background-color: white;
 }
