@@ -25,12 +25,12 @@ body {
 }
 
 #calender {
-    width: 66em;
+    width: 45.6em;
     height: 70%;
     float: left;
     margin:1em;
-    margin-left: 150px;
-    margin-top: 50px;
+    margin-left: 110px;
+    margin-top: 5px;
     border: 0.1em solid dimgray;
     background-color: lightslategray;
  
@@ -38,8 +38,8 @@ body {
 }
 
 .calenderDay {
-    width: 9em;
-    height: 9em;
+    width: 6em;
+    height: 6em;
     border: 0.1em solid white; 
     float:left;
      background-color: white;
@@ -50,6 +50,7 @@ body {
     width: 100%;
     margin-top: 0;
     height: 25px;
+    font-size: 15px;
     background: linear-gradient(lightgray, white);
  border-bottom: 1px gray solid;
     
@@ -66,16 +67,23 @@ body {
     border: black solid 1px;
 } 
 
-h1 {
-    color: white;
-    text-align: center;
+#header {
+    width: 46em;
+    margin-left: 110px;
+    margin-top: 40px;
     background-color: steelblue;
-    font-size: 20px;
-height: max-content;
+   position: relative;
 }
 
+h1 {
+ color: white;
+  font-size: 25px;
+text-align: center;
+}
+
+
 #divForm {
-    position:absolute;
+position:absolute;
 left:40%;
 top:17%;
 margin-left:-202px;
@@ -104,4 +112,29 @@ display: none;
 }
 .selectedDay > span{
     background-color: white;
+}
+
+#arrow-left, #arrow-right {
+    font-size: 23px;
+    color: white;
+    position: absolute;
+    top: 0em;
+    font-weight: 900;
+    background-color: steelblue;
+    border:none;
+    }
+
+#arrow-left {
+    left: 3px;
+}
+
+#arrow-right {
+    right:3px;
+}
+
+#textDiv {
+    font-size: 10px;
+    padding-top:0;
+    margin-top:0;
+    line-height: 1;
 }
