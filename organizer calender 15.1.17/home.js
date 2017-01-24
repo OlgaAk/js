@@ -9,38 +9,13 @@ var currentDate = new Date();
 var currentMonth = currentDate.getMonth();
 var currentYear = currentDate.getFullYear();
 var nextMonth = currentMonth + 1;
-// var lastMonth = currentMonth - 1;
-// console.log(lastMonth);
-function getNextMonth (currentMonth) {
-        if  (currentMonth === 11) {
-           currentMonth = 0;
-        currentYear += 1;      
-               
-    } else {
-        currentMonth += 1;
-    }
-}
-
-function getLastMonth (currentMonth) {
-        if (currentMonth === 0) {
-            currentMonth = 11;
-            currentYear -= 1;
-            
-    } else  {
-        currentMonth -= 1;
-       
-        }
-}
 
 var lastMonthYear = currentDate.getFullYear();
-
-
 
 
 function daysInMonth(month,year) {
     return new Date(year, month, 0).getDate();
 }
-
 
 console.log(currentDate);
 
@@ -49,21 +24,29 @@ var daysInCurrentMonth = daysInMonth(currentMonth, currentYear);
 
 console.log(daysInCurrentMonth);
 
+function Calender(prepod) {
+    this.prepod = prepod;
+    this.allLessonDays = [];
+}
+
+// создаем календарь в ДОМ-дереве
+
 function createCalender (daysInCurrentMonth) {
-
-for (var i = 0; i < daysInCurrentMonth; i++) {
-
-var cDay = document.createElement('div');
-cDay.setAttribute('class', 'calenderDay');
-var dayNumP = document.createElement('p');
-var dayNumT = document.createTextNode(i+1);
-cDay.setAttribute('id', i+1);
-dayNumP.setAttribute('id', "p" + (i+1));
-dayNumP.appendChild(dayNumT);
-cDay.appendChild(dayNumP);
-calenderDiv.appendChild(cDay);
+    for (var i = 0; i < daysInCurrentMonth; i++) {
+    var cDay = document.createElement('div');
+    cDay.setAttribute('class', 'calenderDay');
+    var dayNumP = document.createElement('p');
+    var dayNumT = document.createTextNode(i+1);
+    cDay.setAttribute('id', i+1);
+    dayNumP.setAttribute('id', "p" + (i+1));
+    dayNumP.appendChild(dayNumT);
+    cDay.appendChild(dayNumP);
+    calenderDiv.appendChild(cDay);
+    monthTitle.innerHTML = months[currentMonth] + " " + currentYear + " год";
 }
 }
+
+// функция для правильного формирования календаря - с понедельника
 
 function findMonday (currentMonth, currentYear) {
     for (var i = 0; i < 7; i++) {
@@ -84,35 +67,35 @@ calenderDiv.appendChild(cDay);
 }
 }}
 
-// var form = document.getElementById('divForm');
 
-// calenderDiv.addEventListener('click', function () { form.style.display = "block"; } );
-
-
-
-
-// var selectedDays = [];
-// var lessonDays = [2, 4, 6];
-// var currentLesson = ["Морской бой",  "Node.js", "Тема уточняется"]
-
-
+// кнопки для пролистывания месяцев
 
 var buttonBack = document.getElementById('arrow-left');
 var buttonNext = document.getElementById('arrow-right');
  
+buttonBack.addEventListener('click', createLastMonthCalender);
+buttonNext.addEventListener('click', createNextMonthCalender);
+
+// пролистывание назад
 
 function createLastMonthCalender () {
-    getLastMonth(currentMonth);
+    if (currentMonth != 11) {
+    currentMonth -= 1;
+    }
     var daysInCurrentMonth = daysInMonth(currentMonth, currentYear);
     console.log(daysInCurrentMonth);
      calenderDiv.innerHTML = '';
     findMonday(currentMonth, currentYear);
     createCalender(daysInCurrentMonth);
     monthTitle.innerHTML = months[currentMonth] + " " + currentYear + " год";
+    calender1.getSelectedDays();
+calender2.getSelectedDays();
 }
 
+// пролистывание вперед
+
 function createNextMonthCalender () {
-    getNextMonth(currentMonth);
+     currentMonth += 1;
     console.log(currentMonth, currentYear);
     
     var daysInCurrentMonth = daysInMonth(currentMonth, currentYear);
@@ -121,56 +104,89 @@ function createNextMonthCalender () {
     findMonday(currentMonth, currentYear);
     createCalender(daysInCurrentMonth);
     monthTitle.innerHTML = months[currentMonth] + " " + currentYear + " год";
+    calender1.getSelectedDays();
+calender2.getSelectedDays();
+
 }
 
+// конструктор для заполнения календаря уроками
 
-findMonday();
-createCalender(daysInCurrentMonth);
-
-
-buttonBack.addEventListener('click', createLastMonthCalender);
-buttonNext.addEventListener('click', createNextMonthCalender);
-
-function Prepod (name, dtStart, dtEnd, nameBlock) { 
+function Prepod(name, dtStart, dtEnd, nameBlock, nameBlockColor) { 
 this.name = name;
 this.dtStart = dtStart;
+this.dtStartSplit = this.dtStart.split('.');
 this.dtEnd = dtEnd;
-this.lessonDays = [2, 4, 6];
-this.allLessonDays = [];
+this.dtEndSplit = this.dtEnd.split('.');
+this.lessonDays = [];
 this.nameBlock = nameBlock;
+this.nameBlockColor = nameBlockColor;
 }
 
-Prepod.prototype.getSelectedDays = function(){
+// вносим в календарь уроки
+
+Calender.prototype.fillSelectedDays = function(i) {
+     this.allLessonDays.push(i);
+    console.log(this.allLessonDays);
+    var cDaySelected = document.getElementById(i);
+    // cDaySelected.className += " selectedDay";
+    cDaySelected.style.background = this.prepod.nameBlockColor;
+    var textDiv = document.createElement("div");
+    textDiv.id = 'textDiv';
+    textDiv.innerHTML = this.prepod.name + '<br>' + this.prepod.nameBlock + '<br>' + this.prepod.dtStart + '-' + '<br>' + this.prepod.dtEnd;
+    cDaySelected.appendChild(textDiv);
+    var closeButton = document.createElement('button');
+    closeButton.addEventListener('click', function() {cDaySelected.removeChild(textDiv); cDaySelected.style.background = 'white'; });
+    var closeSign = document.createTextNode('x');
+    closeButton.appendChild(closeSign);
+    closeButton.className += " closeBtn";
+    textDiv.appendChild(closeButton);
+}
+
+
+
+
+Calender.prototype.getSelectedDays = function(){
+    console.log(+this.prepod.dtStartSplit[1]-1, currentMonth)
+if (+this.prepod.dtStartSplit[1]-1 == currentMonth) {
+
     for (var i = 1; i <= daysInCurrentMonth; i++) {
     var thatDate = new Date (currentYear, currentMonth, i);
         var thatDateofWeek = thatDate.getDay();
         console.log(i);
          console.log(thatDateofWeek);
-          console.log(this.lessonDays);
-   for (var counter=0; counter < this.lessonDays.length; counter++)  {
-if (thatDateofWeek == this.lessonDays[counter]) {
-    console.log(thatDateofWeek);
-   
-    // cDay[i].setAttribute('class', 'calenderDay');
-  this.allLessonDays.push(i);
-    console.log(this.allLessonDays);
-     var cDaySelected = document.getElementById(i);
-   cDaySelected.className += " selectedDay";
-      var text1 = document.createTextNode(this.name + this.nameBlock + this.dtStart + '-' + this.dtEnd);
- var textDiv = document.createElement("div");
-textDiv.id = 'textDiv';
-textDiv.innerHTML = this.name + '<br>' + this.nameBlock + '<br>' + this.dtStart + '-' + '<br>' + this.dtEnd;
-    cDaySelected.appendChild(textDiv);
- }
- } } 
+          console.log(this.prepod.lessonDays);
+   for (var counter=0; counter < this.prepod.lessonDays.length; counter++)  {
+        console.log(i, +this.prepod.dtStartSplit[0], thatDateofWeek, this.prepod.lessonDays[counter]);
+        console.log(+this.prepod.dtEndSplit[0], i);
+
+      if (+this.prepod.dtEndSplit[1]-1 == currentMonth) {
+                if (+this.prepod.dtEndSplit[0] >= i && i >= +this.prepod.dtStartSplit[0] && thatDateofWeek === this.prepod.lessonDays[counter])  {  
+                   this.fillSelectedDays(i);            
+                }
+    } else { 
+         if ( i >= +this.prepod.dtStartSplit[0] && thatDateofWeek === this.prepod.lessonDays[counter])  {  
+                this.fillSelectedDays(i);      
+         }
+    }
+ } 
+}
+}
 }
 
-var prepodKirill = new Prepod('Кирилл' , "01.12.2016", '24.12.2016', "Javascript");
+var prepodKirill = new Prepod('Кирилл' , "9.01.2017", '20.01.2017', "Javascript", 'green');
+prepodKirill.lessonDays = [1,5];
 
-var prepodVitaliy  = new Prepod('Виталий' , "10.01.2017", "17.02.2017", "Node.js");
+var prepodVitaliy  = new Prepod('Виталий' , "21.01.2017", "31.01.2017", "Node.js", 'red');
+prepodVitaliy.lessonDays = [2,4,6];
 
- prepodVitaliy.getSelectedDays();
+var calender1 = new Calender(prepodKirill);
+var calender2 = new Calender(prepodVitaliy);
 
+
+findMonday(currentMonth, currentYear);
+createCalender(daysInCurrentMonth);
+calender1.getSelectedDays();
+calender2.getSelectedDays();
 
 } (window));
 
